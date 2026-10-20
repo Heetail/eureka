@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator | Smartverktyg</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .calculator-page {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 24px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .calculator-page input {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 12px 0;
+      padding: 14px;
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="calculator-page">
+    <a class="back-button" href="../index.html">← Till startsidan</a>
+
+    <h1>🧮 Calculator</h1>
+    <p>Räkna ut tal direkt här.</p>
+
+    <div id="calculator"></div>
+  </main>
+
+  <script src="../tools/calculator.js"></script>
+</body>
+</html>
