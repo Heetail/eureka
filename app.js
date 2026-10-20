@@ -1,64 +1,51 @@
 
-"use strict";
+(() => {
+  const search = document.getElementById("search");
+  const cards = [...document.querySelectorAll(".tool-card")];
+  const filters = [...document.querySelectorAll(".filter")];
+  const emptyMessage = document.getElementById("empty-message");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.getElementById("search");
-  const filterButtons = document.querySelectorAll(".filter");
-  const cards = document.querySelectorAll(".tool-card");
-  const noResults = document.getElementById("no-results");
-
-  let activeFilter = "all";
+  let category = "all";
 
   function updateCards() {
-    const query = searchInput.value.trim().toLocaleLowerCase("sv");
+    const query = search.value.trim().toLowerCase();
     let visibleCount = 0;
 
     cards.forEach((card) => {
-      const category = card.dataset.category || "";
-      const name = card.dataset.name || "";
-      const heading = card.querySelector("h3")?.textContent || "";
-      const description = card.querySelector("p")?.textContent || "";
-
-      const searchableText =
-        `${name} ${heading} ${description}`.toLocaleLowerCase("sv");
-
+      const matchesText = card.textContent.toLowerCase().includes(query);
       const matchesCategory =
-        activeFilter === "all" || category === activeFilter;
+        category === "all" || card.dataset.category === category;
 
-      const matchesSearch =
-        !query || searchableText.includes(query);
-
-      const visible = matchesCategory && matchesSearch;
-
+      const visible = matchesText && matchesCategory;
       card.hidden = !visible;
 
       if (visible) visibleCount++;
     });
 
-    noResults.hidden = visibleCount !== 0;
+    document.querySelectorAll(".catalog h2").forEach((heading) => {
+      const grid = heading.nextElementSibling;
+      if (!grid || !grid.classList.contains("card-grid")) return;
+
+      heading.hidden = ![...grid.querySelectorAll(".tool-card")]
+        .some((card) => !card.hidden);
+    });
+
+    emptyMessage.hidden = visibleCount !== 0;
   }
 
-  filterButtons.forEach((button) => {
+  search.addEventListener("input", updateCards);
+
+  filters.forEach((button) => {
     button.addEventListener("click", () => {
-      activeFilter = button.dataset.filter || "all";
+      category = button.dataset.filter;
 
-      filterButtons.forEach((item) => {
-        const selected = item === button;
-
-        item.classList.toggle("active", selected);
-        item.setAttribute("aria-pressed", String(selected));
+      filters.forEach((filter) => {
+        filter.classList.toggle("active", filter === button);
       });
 
       updateCards();
     });
-
-    button.setAttribute(
-      "aria-pressed",
-      String(button.classList.contains("active"))
-    );
   });
 
-  searchInput.addEventListener("input", updateCards);
-
   updateCards();
-});
+})();
