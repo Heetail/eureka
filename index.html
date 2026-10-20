@@ -1,164 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101426">
-  <meta name="description" content="Smarta gratisverktyg och roliga spel direkt i webbläsaren.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
   <title>Smartverktyg | Verktyg & spel</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="#" aria-label="Smartverktyg startsida">
-      <span class="logo-icon">⚡</span>
-      Smartverktyg
-    </a>
+    <a class="logo" href="index.html">⚡ Smartverktyg</a>
     <p>Smarta verktyg. Roliga spel. Allt på ett ställe.</p>
   </header>
 
-  <main class="container">
-    <section class="welcome">
+  <main class="home">
+    <section class="hero">
       <span class="eyebrow">DIN DIGITALA VERKTYGSLÅDA</span>
-      <h1>Vad vill du <span>göra idag?</span></h1>
-      <p>Välj ett verktyg eller ta en paus med ett spel.</p>
-
-      <input
-        id="search"
-        class="search"
-        type="search"
-        placeholder="🔎 Sök verktyg eller spel..."
-        aria-label="Sök verktyg eller spel"
-      >
+      <h1>Vad vill du göra idag?</h1>
+      <p>Välj ett verktyg eller starta ett spel.</p>
+      <input id="search" type="search" placeholder="Sök verktyg och spel..." aria-label="Sök">
     </section>
 
-    <nav class="filters" aria-label="Filtrera innehåll">
+    <nav class="filters" aria-label="Filtrera">
       <button class="filter active" data-filter="all">Alla</button>
-      <button class="filter" data-filter="tool">🛠️ Verktyg</button>
-      <button class="filter" data-filter="game">🎮 Spel</button>
+      <button class="filter" data-filter="tool">Verktyg</button>
+      <button class="filter" data-filter="game">Spel</button>
     </nav>
 
-    <section>
-      <div class="section-heading">
-        <h2>🛠️ Dina verktyg</h2>
-        <span>8 verktyg</span>
+    <section class="catalog">
+      <h2>🧰 Verktyg</h2>
+      <div class="card-grid" id="tools-grid">
+        <a class="tool-card" data-category="tool" href="tools/calculator.html"><span>🧮</span><h3>Calculator</h3><p>Räkna snabbt och enkelt.</p></a>
+        <a class="tool-card" data-category="tool" href="tools/todo.html"><span>✅</span><h3>Att göra</h3><p>Planera dina uppgifter.</p></a>
+        <a class="tool-card" data-category="tool" href="tools/notes.html"><span>📝</span><h3>Anteckningar</h3><p>Spara dina idéer.</p></a>
+        <a class="tool-card" data-category="tool" href="tools/timer.html"><span>⏱️</span><h3>Timer</h3><p>Håll koll på tiden.</p></a>
+        <a class="tool-card" data-category="tool" href="tools/password.html"><span>🔐</span><h3>Lösenord</h3><p>Skapa starka lösenord.</p></a>
+        <a class="tool-card" data-category="tool" href="tools/converter.html"><span>📏</span><h3>Omvandlare</h3><p>Omvandla olika mått.</p></a>
+        <a class="tool-card" data-category="tool" href="tools/percent.html"><span>💯</span><h3>Procent</h3><p>Beräkna procent och rabatt.</p></a>
+        <a class="tool-card" data-category="tool" href="tools/picker.html"><span>🎲</span><h3>Slumpväljare</h3><p>Låt slumpen bestämma.</p></a>
       </div>
 
-      <div class="tool-grid">
-        <article class="tool-card" data-category="tool" data-name="miniräknare kalkylator matte">
-          <div class="card-icon">🧮</div>
-          <h3>Miniräknare</h3>
-          <p>Räkna ut matematiska uttryck enkelt.</p>
-          <div id="calculator" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card" data-category="tool" data-name="att göra lista uppgifter todo">
-          <div class="card-icon">✅</div>
-          <h3>Att göra-lista</h3>
-          <p>Håll koll på uppgifter och planer.</p>
-          <div id="todo" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card" data-category="tool" data-name="anteckningar text notes">
-          <div class="card-icon">📝</div>
-          <h3>Anteckningar</h3>
-          <p>Skriv och spara anteckningar i webbläsaren.</p>
-          <div id="notes" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card" data-category="tool" data-name="timer nedräkning klocka">
-          <div class="card-icon">⏱️</div>
-          <h3>Timer</h3>
-          <p>Starta en nedräkning när du behöver den.</p>
-          <div id="timer" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card" data-category="tool" data-name="lösenord generator säkerhet">
-          <div class="card-icon">🔐</div>
-          <h3>Lösenordsgenerator</h3>
-          <p>Skapa slumpmässiga lösenord.</p>
-          <div id="password" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card" data-category="tool" data-name="omvandlare kilometer meter enheter">
-          <div class="card-icon">🔄</div>
-          <h3>Omvandlare</h3>
-          <p>Omvandla längd mellan km, meter och cm.</p>
-          <div id="converter" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card" data-category="tool" data-name="procent procentuell beräkning">
-          <div class="card-icon">📊</div>
-          <h3>Procenträknare</h3>
-          <p>Beräkna procent av ett tal.</p>
-          <div id="percent" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card" data-category="tool" data-name="slumpgenerator slumpmässigt val">
-          <div class="card-icon">🎲</div>
-          <h3>Slumpgenerator</h3>
-          <p>Låt slumpen välja mellan dina alternativ.</p>
-          <div id="picker" class="tool-content"></div>
-        </article>
+      <h2>🎮 Spel</h2>
+      <div class="card-grid" id="games-grid">
+        <a class="tool-card" data-category="game" href="tools/tictactoe.html"><span>⭕</span><h3>Tre i rad</h3><p>Utmana en vän.</p></a>
+        <a class="tool-card" data-category="game" href="tools/memory.html"><span>🧠</span><h3>Memory</h3><p>Hitta alla par.</p></a>
+        <a class="tool-card" data-category="game" href="tools/reaction.html"><span>⚡</span><h3>Reaktionstest</h3><p>Testa dina reflexer.</p></a>
       </div>
+
+      <p id="empty-message" hidden>Inga resultat hittades. Prova en annan sökning.</p>
     </section>
-
-    <section class="games-section">
-      <div class="section-heading">
-        <h2>🎮 Spelhörnan</h2>
-        <span>3 spel</span>
-      </div>
-
-      <div class="tool-grid">
-        <article class="tool-card game-card" data-category="game" data-name="tre i rad tic tac toe">
-          <div class="card-icon">❎</div>
-          <h3>Tre i rad</h3>
-          <p>Utmana en vän i det klassiska spelet.</p>
-          <div id="tictactoe" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card game-card" data-category="game" data-name="memory minne kort matcha">
-          <div class="card-icon">🧠</div>
-          <h3>Memory</h3>
-          <p>Vänd kort och hitta alla matchande par.</p>
-          <div id="memory" class="tool-content"></div>
-        </article>
-
-        <article class="tool-card game-card" data-category="game" data-name="reaktionstest reaktionshastighet reflexer">
-          <div class="card-icon">⚡</div>
-          <h3>Reaktionstest</h3>
-          <p>Testa hur snabbt dina reflexer reagerar.</p>
-          <div id="reaction" class="tool-content"></div>
-        </article>
-      </div>
-    </section>
-
-    <p id="no-results" class="empty-message" hidden>
-      Inga verktyg hittades. Prova en annan sökning.
-    </p>
   </main>
 
-  <footer class="site-footer">
-    <p>⚡ Smartverktyg</p>
-    <p>Gratis verktyg och spel direkt i din webbläsare.</p>
-  </footer>
-
-  <!-- Huvudfil -->
+  <footer>⚡ Smartverktyg · Din verktygslåda på nätet</footer>
   <script src="app.js"></script>
-
-  <!-- Verktyg, en separat fil per funktion -->
-  <script src="tools/calculator.js"></script>
-  <script src="tools/todo.js"></script>
-  <script src="tools/notes.js"></script>
-  <script src="tools/timer.js"></script>
-  <script src="tools/password.js"></script>
-  <script src="tools/converter.js"></script>
-  <script src="tools/percent.js"></script>
-  <script src="tools/picker.js"></script>
-
-  <!-- Spel, ett separat spel per fil -->
-  <script src="tools/tictactoe.js"></script>
-  <script src="tools/memory.js"></script>
-  <script src="tools/reaction.js"></script>
 </body>
 </html>
