@@ -1,1 +1,148 @@
 
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>Inställningar | Smartverktyg</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .settings-main {
+      width: min(760px, 92%);
+      margin: 48px auto;
+    }
+
+    .settings-card {
+      padding: 28px;
+      margin: 22px 0;
+      border: 1px solid rgba(139, 92, 246, .25);
+      border-radius: 20px;
+      background: rgba(20, 29, 48, .85);
+      color: #f8fafc;
+    }
+
+    .settings-card h2 { margin-top: 0; }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+
+    .setting-row:last-child { border-bottom: 0; }
+
+    .setting-row p {
+      margin: 5px 0 0;
+      color: #aab6ca;
+      font-size: .92rem;
+    }
+
+    .settings-card select,
+    .settings-card button {
+      padding: 11px 14px;
+      border: 1px solid #6250a8;
+      border-radius: 10px;
+      background: #202b43;
+      color: white;
+      font: inherit;
+    }
+
+    .settings-card button {
+      cursor: pointer;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      border: 0;
+      font-weight: 700;
+    }
+
+    .settings-card button:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    .settings-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .settings-nav a {
+      color: #c4b5fd;
+      text-decoration: none;
+    }
+
+    #status {
+      min-height: 24px;
+      color: #c4b5fd;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 520px) {
+      .setting-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="../index.html">⚡ Smartverktyg</a>
+    <p>Dina personliga inställningar</p>
+  </header>
+
+  <main class="settings-main">
+    <nav class="settings-nav" aria-label="Kontonavigering">
+      <a href="./">← Mitt konto</a>
+      <a href="../index.html">Startsidan</a>
+    </nav>
+
+    <h1>⚙️ Inställningar</h1>
+    <p>Anpassa Smartverktyg efter hur du vill använda webbplatsen.</p>
+
+    <section class="settings-card">
+      <h2>Utseende</h2>
+
+      <div class="setting-row">
+        <div>
+          <strong>Färgtema</strong>
+          <p>Välj hur Smartverktyg ska se ut.</p>
+        </div>
+        <select id="theme">
+          <option value="dark">Mörkt</option>
+          <option value="light">Ljust</option>
+          <option value="system">Följ enhetens tema</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <h2>Personliga inställningar</h2>
+
+      <div class="setting-row">
+        <div>
+          <strong>Öppna länkar i ny flik</strong>
+          <p>Välj om externa länkar ska öppnas separat.</p>
+        </div>
+        <input id="new-tabs" type="checkbox">
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <h2>Spara</h2>
+      <p>Dina inställningar sparas på ditt konto när du är inloggad.</p>
+      <button id="save-settings" type="button">Spara inställningar</button>
+      <p id="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../supabase.js"></script>
+  <script src="installningar.js"></script>
+</body>
+</html>
+
