@@ -60,7 +60,7 @@ signupButton.addEventListener("click", async () => {
       email: emailInput.value.trim(),
       password: passwordInput.value,
       options: {
-        emailRedirectTo: window.location.origin + "/konto.html"
+        emailRedirectTo: window.location.origin + "/konto/"
       }
     });
 
