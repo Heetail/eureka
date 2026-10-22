@@ -87,6 +87,57 @@
         flex-direction: column;
       }
     }
+    
+/* Temastöd för inställningssidan */
+html[data-theme="dark"] body {
+  background: #101827;
+  color: #f8fafc;
+}
+
+html[data-theme="dark"] .settings-card {
+  background: #141d30;
+  color: #f8fafc;
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+html[data-theme="dark"] .setting-row p {
+  color: #aab6ca;
+}
+
+html[data-theme="light"] body {
+  background: #f3f6fc;
+  color: #172033;
+}
+
+html[data-theme="light"] .settings-card {
+  background: #ffffff;
+  color: #172033;
+  border-color: #dce3f0;
+  box-shadow: 0 8px 24px rgba(20, 35, 60, 0.06);
+}
+
+html[data-theme="light"] .setting-row {
+  border-bottom-color: #e5eaf3;
+}
+
+html[data-theme="light"] .setting-row p {
+  color: #64748b;
+}
+
+html[data-theme="light"] .settings-card select {
+  background: #ffffff;
+  color: #172033;
+  border-color: #cbd5e1;
+}
+
+html[data-theme="light"] .settings-nav a {
+  color: #6241c8;
+}
+
+html[data-theme="light"] #status {
+  color: #6241c8;
+}
+
   </style>
 </head>
 <body>
