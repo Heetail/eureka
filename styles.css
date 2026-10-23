@@ -353,3 +353,69 @@ footer {
     min-width: 0;
   }
 }
+
+/* Gemensamt ljust tema för Smartverktyg */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f3f6fc;
+  --panel: #ffffff;
+  --panel-hover: #e9edfa;
+  --text: #172033;
+  --muted: #64748b;
+  --accent: #6d4aff;
+  --border: #d9e1ef;
+}
+
+:root[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+:root[data-theme="light"] .site-header {
+  background: #ffffff;
+  border-color: var(--border);
+}
+
+:root[data-theme="light"] .logo {
+  color: #172033;
+}
+
+:root[data-theme="light"] .tool-card,
+:root[data-theme="light"] .tool-panel {
+  background: var(--panel);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+:root[data-theme="light"] .tool-card p,
+:root[data-theme="light"] .site-header p,
+:root[data-theme="light"] footer {
+  color: var(--muted);
+}
+
+:root[data-theme="light"] #search,
+:root[data-theme="light"] .tool-panel input,
+:root[data-theme="light"] .tool-panel textarea,
+:root[data-theme="light"] .tool-panel select {
+  background: #ffffff;
+  color: #172033;
+  border-color: var(--border);
+}
+
+:root[data-theme="light"] .back-button {
+  color: #172033;
+  background: #ffffff;
+  border-color: var(--border);
+}
+
+:root[data-theme="light"] button,
+:root[data-theme="light"] .filter {
+  color: #172033;
+  background: #ffffff;
+  border-color: var(--border);
+}
+
+:root[data-theme="light"] .filter.active {
+  color: #ffffff;
+  background: var(--accent);
+}
